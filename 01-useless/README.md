@@ -1,6 +1,6 @@
 # `01-useless`
 
-So this useless contract allows you to do one thing introduce yourself.
+So this useless contract allows you to do one thing - introduce yourself.
 
 1. It introduces a `Passport` struct which holds nothing but your name.
 2. If you decide to call `say_my_name` from an account - it will store your name inside `Passport` structure in your own account's storage.
