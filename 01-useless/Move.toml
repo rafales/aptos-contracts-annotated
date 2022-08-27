@@ -1,0 +1,21 @@
+[package]
+# I don't think package name matters much. I think it's used only when you
+# decide to put it somewhere in `[dependencies]`.
+name = 'useless'
+version = '1.0.0'
+
+[addresses]
+# Addresses are more important. When you refer to your module as useless:Useless
+# then `useless` is not the package name but a named address!
+# see this for more: https://move-language.github.io/move/address.html#named-addresses
+useless = "4348f2118192eb9db970a108acf6713bcd5e527e0687a53454abc74864b20d83"
+
+[dependencies]
+# So we can "load" dependencies with git. We can not only specify git repo, but also which subdir
+# we want to use and which revision (git tag, branch name or a commit hash).
+
+# You will also notice something weird - we use "AptosFramework" while when working this in code
+# we will refer to modules as "aptos_framework::something". This is because AptosFramework is name
+# of the package (in Move.toml), but if you take a look inside it - it exports several named addresses like
+# "std", "aptos_std", "aptos_framework". And when working in code - we are actually referring to addresses!
+AptosFramework = {git = 'https://github.com/aptos-labs/aptos-core.git', rev = 'devnet', subdir = 'aptos-move/framework/aptos-framework'}
