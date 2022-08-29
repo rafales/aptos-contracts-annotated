@@ -91,12 +91,20 @@ module moocoin::MooCoin {
         move_to(source, caps);
     }
 
+    // This function allows contract owner to mint new tokens to a given account.
     public entry fun mint(account: &signer, amount: u64, to: address) acquires CapStore {
+        // Minting is only possible if we hold a MintCapability. We stored it in global storage.
         let caps = borrow_global<CapStore>(address_of(account));
+        // Minting and deposit are two separate operations.
+        // This is safe because Coin<MooCoin> does not have "drop" ability, so
+        // we can't simply forget about it without depositing.
         let minted = coin::mint(amount, option::borrow(&caps.mint));
         coin::deposit(to, minted);
     }
 
+    // Compared to ERC-20 - Aptos will not allow us to send tokens to someone who do not wish
+    // to receive them. User needs to call register() first. coin::register() is not an entry
+    // function so we need to create a wrapper for it.
     public entry fun register(account: &signer) {
         coin::register<MooCoin>(account);
     }
