@@ -1,0 +1,9 @@
+[package]
+name = 'timevault'
+version = '1.0.0'
+
+[addresses]
+timevault = "4348f2118192eb9db970a108acf6713bcd5e527e0687a53454abc74864b20d83"
+
+[dependencies]
+AptosFramework = {git = 'https://github.com/aptos-labs/aptos-core.git', rev = 'devnet', subdir = 'aptos-move/framework/aptos-framework'}
