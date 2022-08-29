@@ -21,7 +21,10 @@ Move/Aptos advocate for a completely different approach:
   * it can be deposited or withdrawn from user's "bank account" (`coin::withdraw()`, `coin::deposit()`)
   * it can be stored under your bed or in a sock (by that I mean other places like `CoinTimeVault`)
   * it can be moved around
-  * but it can't be copied, and it can't be destroyed
+  * but:
+    * it can't be copied
+    * it can't be destroyed of "forgotten"
+    * it's value can't be changed
 * this is the magic of Move!
 * so architecture of this module is pretty simple:
   * user withdraws coins from their bank account (`coin::withdraw()`)
