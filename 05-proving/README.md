@@ -66,7 +66,7 @@ If you have everything set up then you can run prover with `aptos move prove` in
 
 I decided to keep this simple and not put too much into this "chapter" as there is already a lot to understand. If you managed to install and run prover then you can go through a contract with specification embedded:
 
-* `Counter.move` (./sources/Counter.move)
+* [Counter.move](./sources/Counter.move)
 
 You will find most of the constructs available in [Move Specification Language doc](https://github.com/move-language/move/blob/main/language/move-prover/doc/user/spec-lang.md).
 
